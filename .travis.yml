@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  -docker build -t thewallasher/pinnaclereact -f Dockerfile.dev .
+
+script:
+  - docker run thewallasher/pinnaclereact npm run test -- --coverage
